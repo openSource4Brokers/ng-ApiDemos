@@ -1,15 +1,14 @@
 # ng-ApiDemos - open source api demos using Angular
 ## Getting started for users
 Live version here: [site](https://apidemos.vsoft.be)
-
+## API Sources used for this app
+- [NovelCOVID/API](https://github.com/novelcovid/api)
 ## Getting started for developers
 - [Install NodeJS](https://nodejs.org/). Hint: eventually install and use [nvm](https://medium.com/@Joachim8675309/installing-node-js-with-nvm-4dc469c977d9) for easy installing and/or switching between node versions
 - Clone this repository: `git clone https://github.com/openSource4Brokers/ng-ApiDemos`.
 - Run `npm install` inside the project root.
 - Run `ng serve` in a terminal from the project root.
 - Profit. :tada:
-## API Tools used for this app
-- [NovelCOVID/API](https://github.com/novelcovid/api)
 ## Development Tools used for this app
 - [NodeJS](https://nodejs.org/)
 - [Visual Studio Code](https://code.visualstudio.com/)
