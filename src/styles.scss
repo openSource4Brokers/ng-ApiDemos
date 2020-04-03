@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
+@import "assets/themes/darkly/bootstrap.min.css";
+
+/* Bootstrap 4.x default */
+/* html {
+  font-size: 16px;
+} */
+
+/* Bootstrap 4.x small */
+html {
+  font-size: 14px;
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}

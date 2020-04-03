@@ -1,0 +1,53 @@
+{
+  "NAVBAR": {
+    "NavTitle": "Api examples",
+    "NavAbout": "About App",
+    "NavSettings": "Settings",
+    "LanguageModalTitle": "Language of choice:",
+    "LanguageModalCloseBtnName": "Close"
+  },
+
+  "FOOTER": {
+    "Title": "ng-ApiDemo"
+  },
+
+  "HOME": {
+    "Carousel-Image1": "assets/images/carousel/corona1.jfif",
+    "Carousel-Alt1": "first slide",
+    "Carousel-Link1": "/corona",
+    "Carousel-Label1": "Corona",
+    "Carousel-Info1": "Covid19",
+    "Carousel-Button1": "Go to the page",
+
+    "Carousel-Image2": "assets/images/carousel/corona2.jfif",
+    "Carousel-Alt2": "second slide",
+    "Carousel-Link2": "/corona",
+    "Carousel-Label2": "Covid19",
+    "Carousel-Info2": "Corona",
+    "Carousel-Button2": "Try the API",
+
+    "Carousel-Image3": "assets/images/carousel/corona3.jfif",
+    "Carousel-Alt3": "thirth slide",
+    "Carousel-Link3": "/corona",
+    "Carousel-Label3": "Corona",
+    "Carousel-Info3": "Covid19",
+    "Carousel-Button3": "Test the demo",
+
+    "Carousel-Image4": "assets/images/carousel/corona4.jfif",
+    "Carousel-Alt4": "forth slide",
+    "Carousel-Link4": "/corona",
+    "Carousel-Label4": "Covid19",
+    "Carousel-Info4": "Corona",
+    "Carousel-Button4": "Corona API"
+  },
+
+  "ABOUT": {
+    "MainTitle": "About App",
+    "MainSub": "Simple single page application developed with Angular & i.a. bootstrap, fontawesome and ngx-translate.",
+    "OpenSourceTitle": "Open Source",
+    "OpenSourceSub": "On our github page you find the source code of this application for download and examining.",
+    "GithubUrl": "https://github.com/openSource4Brokers/ng-ApiDemos",
+    "GithubButton": "Source code on Github",
+    "Image": "assets/images/about/about2.jfif"
+  }
+}

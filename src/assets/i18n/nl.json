@@ -1,0 +1,54 @@
+{
+  "NAVBAR": {
+    "NavTitle": "Api Voorbeelden",
+    "NavAbout": "Deze App",
+    "NavSettings": "Instellingen",
+    "LanguageModalTitle": "Taalkeuze:",
+    "LanguageModalCloseBtnName": "Sluiten"
+  },
+
+  "FOOTER": {
+    "Title": "ng-ApiDemo"
+  },
+
+  "HOME": {
+    "Carousel-Image1": "assets/images/carousel/corona1.jfif",
+    "Carousel-Alt1": "eerste slide",
+    "Carousel-Link1": "/corona",
+    "Carousel-WindowLink1": "",
+    "Carousel-Label1": "Corona",
+    "Carousel-Info1": "Covid19",
+    "Carousel-Button1": "Ga naar de pagina",
+
+    "Carousel-Image2": "assets/images/carousel/corona2.jfif",
+    "Carousel-Alt2": "tweede slide",
+    "Carousel-Link2": "/corona",
+    "Carousel-Label2": "Covid19",
+    "Carousel-Info2": "Corona",
+    "Carousel-Button2": "Probeer de API",
+
+    "Carousel-Image3": "assets/images/carousel/corona3.jfif",
+    "Carousel-Alt3": "derde slide",
+    "Carousel-Link3": "/corona",
+    "Carousel-Label3": "Corona",
+    "Carousel-Info3": "Covid19",
+    "Carousel-Button3": "Test de demo",
+
+    "Carousel-Image4": "assets/images/carousel/corona4.jfif",
+    "Carousel-Alt4": "vierde slide",
+    "Carousel-Link4": "/corona",
+    "Carousel-Label4": "Covid19",
+    "Carousel-Info4": "Corona",
+    "Carousel-Button4": "Corona API"
+  },
+
+  "ABOUT": {
+    "MainTitle": "Over deze App",
+    "MainSub": "Eenvoudige single page toepassing ontwikkeld met Angular en o.a. bootstrap, fontawesome en ngx-translate.",
+    "OpenSourceTitle": "Open Source",
+    "OpenSourceSub": "Op onze github pagina vind U de broncode van deze toepassing voor download en studie.",
+    "GithubUrl": "https://github.com/openSource4Brokers/ng-ApiDemos",
+    "GithubButton": "Broncode op Github",
+    "Image": "assets/images/about/about2.jfif"
+  }
+}

@@ -1,0 +1,114 @@
+<!-- CORONA SECTION -->
+<section id="corona" class="py-2">
+    <div class="container">
+        <div class="card card-body mb-3">
+            <div>
+                <tabset #staticTabs>
+                    <tab heading="Country Numbers">
+                        <div class="col-md-6">
+                            <div class="card p-6">
+                                <div class="card-body">
+
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <select (change)="getCountryDetails($event.target.selectedIndex)"
+                                                class="custom-select" aria-describedby="button-countrydetail"
+                                                #thisCountry>
+                                                <option *ngFor="let country of coronaCountries">
+                                                    {{country.country}}
+                                                </option>
+                                            </select>
+                                            <div *ngIf="!countryHistorical" class="input-group-append">
+                                                <button (click)="getHistory()" class="btn btn-danger" type="button"
+                                                    id="button-countrydetail">Get History</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="py-3" *ngIf="coronaCountry">
+                                        <p>
+                                            last updated: {{ countryLastUpdate }}
+                                        </p>
+                                        <p>
+                                            RAW data last updated: {{ coronaCountry.updated }}
+                                        </p>
+                                        <p>
+                                            cases today: {{ coronaCountry.todayCases }}
+                                        </p>
+                                        <p>
+                                            deaths today: {{ coronaCountry.todayDeaths }}
+                                        </p>
+                                        <p>
+                                            cases: {{ coronaCountry.cases }}
+                                        </p>
+                                        <p>
+                                            deaths: {{ coronaCountry.deaths }}
+                                        </p>
+                                        <p>
+                                            recovered: {{ coronaCountry.recovered }}
+                                        </p>
+                                        <p>
+                                            active: {{ coronaCountry.active }}
+                                        </p>
+                                        <p>
+                                            critical: {{ coronaCountry.critical }}
+                                        </p>
+                                        <p>
+                                            cases per million: {{ coronaCountry.casesPerOneMillion }}
+                                        </p>
+                                        <p>
+                                            deaths per million: {{ coronaCountry.deathsPerOneMillion }}
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </tab>
+
+                    <tab *ngIf="countryHistorical" heading="Country History">
+                        <pre class="card card-block card-header">{{ countryHistorical | json }}</pre>
+                    </tab>
+
+                    <tab heading="Global Numbers">
+                        <div class="col-md-6">
+                            <div class="card p-6">
+                                <div class="card-body">
+
+                                    <div class="form-group">
+                                        <button class="btn btn-danger" (click)="getGlobalNumbers()">(Re)Load
+                                            Data</button>
+                                        <div class="py-3" *ngIf="coronaGlobalNumbers">
+                                            <p>
+                                                latest updated: {{ globalLastUpdate }}
+                                            </p>
+                                            <p>
+                                                RAW data last updated: {{ coronaGlobalNumbers.updated }}
+                                            </p>
+                                            <p>
+                                                affected countries: {{ coronaGlobalNumbers.affectedCountries }}
+                                            </p>
+                                            <p>
+                                                cases: {{ coronaGlobalNumbers.cases }}
+                                            </p>
+                                            <p>
+                                                deaths: {{ coronaGlobalNumbers.deaths }}
+                                            </p>
+                                            <p>
+                                                recovered: {{ coronaGlobalNumbers.recovered }}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+
+                </tabset>
+            </div>
+        </div>
+    </div>
+
+</section>
