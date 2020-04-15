@@ -5,28 +5,35 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./modules/home/home.module').then(m => m.HomeModule)
+      import('./modules/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'corona',
     loadChildren: () =>
-      import('./modules/corona/corona.module').then(m => m.CoronaModule)
+      import('./modules/corona/corona.module').then((m) => m.CoronaModule),
   },
   {
     path: 'about',
     loadChildren: () =>
-      import('./modules/about/about.module').then(m => m.AboutModule)
+      import('./modules/about/about.module').then((m) => m.AboutModule),
   },
   {
     path: 'unsplash',
     loadChildren: () =>
-      import('./modules/unsplash/unsplash.module').then(m => m.UnsplashModule)
+      import('./modules/unsplash/unsplash.module').then(
+        (m) => m.UnsplashModule
+      ),
   },
-  { path: '**', redirectTo: 'home', pathMatch: 'full' }
+  {
+    path: 'chart',
+    loadChildren: () =>
+      import('./modules/chart/chart.module').then((m) => m.ChartModule),
+  },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

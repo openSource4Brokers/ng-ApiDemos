@@ -3,7 +3,7 @@
 Live version here: [site](https://apidemos.vsoft.be)
 ## API Sources used for this app
 - [NovelCOVID/API](https://github.com/novelcovid/api)
-- [Postman COVID-19](https://covid-19-apis.postman.com)
+- [Postman COVID-19](https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest)
 ## Getting started for developers
 - [Install NodeJS](https://nodejs.org/). Hint: eventually install and use [nvm](https://medium.com/@Joachim8675309/installing-node-js-with-nvm-4dc469c977d9) for easy installing and/or switching between node versions
 - Clone this repository: `git clone https://github.com/openSource4Brokers/ng-ApiDemos`.

@@ -1,3 +1,5 @@
+import { Timeline } from './_models/timeline';
+import { DayData } from './_models/dayData';
 import { Component, OnInit } from '@angular/core';
 
 import { World } from './_models/world';
@@ -8,19 +10,31 @@ import { CoronaService } from './corona.service';
 @Component({
   selector: 'app-corona',
   templateUrl: './corona.component.html',
-  styleUrls: ['./corona.component.scss']
+  styleUrls: ['./corona.component.scss'],
 })
 export class CoronaComponent implements OnInit {
+  public coronaChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+  };
+
+  coronaChartData: any;
   coronaGlobalNumbers: World;
   coronaCountries: Country[];
   coronaCountry: Country;
-
   countryHistorical: CountryHistorical;
+  countryTimeline: Timeline;
+
+  public coronaChartLabels: string[];
+  public coronaChartType = 'line';
+  public coronaChartLegend = true;
+
+  countryCases: DayData[];
+  countryDeaths: DayData[];
+  countryRecovered: DayData[];
 
   globalLastUpdate: any;
   countryLastUpdate: any;
-  busyGlobal = false;
-  busyCountry = false;
 
   constructor(private cs: CoronaService) {}
 
@@ -37,23 +51,20 @@ export class CoronaComponent implements OnInit {
         this.getGlobalNumbers();
         // console.log(this.coronaCountries);
       },
-      err => console.log(err)
+      (err) => console.log(err)
     );
   }
 
   getGlobalNumbers() {
-    this.busyGlobal = true;
     const corona = this.cs.getGlobal();
     corona.subscribe(
       (data: World) => {
         this.coronaGlobalNumbers = data;
         // console.log(this.coronaGlobalNumbers);
         this.globalLastUpdate = new Date(this.coronaGlobalNumbers.updated);
-        this.busyGlobal = false;
       },
-      err => {
+      (err) => {
         console.log(err);
-        this.busyGlobal = true;
       }
     );
   }
@@ -61,28 +72,39 @@ export class CoronaComponent implements OnInit {
   getCountryDetails(indexInList: number) {
     this.countryHistorical = null;
     if (this.coronaCountries) {
-      this.busyGlobal = false;
       this.coronaCountry = this.coronaCountries[indexInList];
       this.countryLastUpdate = new Date(this.coronaCountry.updated);
-      // console.log(this.coronaCountry);
+      // console.log(this.coronaCountry.country);
     } else {
-      this.busyGlobal = true;
     }
   }
 
   getHistory() {
-    this.busyCountry = true;
     const historical = this.cs.getCountryHistorical(this.coronaCountry.country);
     historical.subscribe(
       (data: CountryHistorical) => {
         this.countryHistorical = data;
-        console.log(this.countryHistorical);
-        this.busyCountry = false;
+        this.prepareChart();
       },
-      err => {
+      (err) => {
         console.log(err);
-        this.busyCountry = false;
       }
     );
+  }
+
+  prepareChart() {
+    this.countryCases = Object.values(this.countryHistorical.timeline.cases);
+    this.countryDeaths = Object.values(this.countryHistorical.timeline.deaths);
+    this.countryRecovered = Object.values(this.countryHistorical.timeline.recovered);
+
+    this.coronaChartData = [
+      { data: this.countryCases, label: 'Cases' },
+      { data: this.countryDeaths, label: 'Deaths' },
+      { data: this.countryRecovered, label: 'Recovered' },
+    ];
+
+    this.coronaChartLabels = Object.keys(this.countryHistorical.timeline.cases);
+    // console.log(this.coronaChartLabels);
+    // console.log(this.coronaChartData);
   }
 }

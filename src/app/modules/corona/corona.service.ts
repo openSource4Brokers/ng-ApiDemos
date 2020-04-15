@@ -8,7 +8,7 @@ import { World } from './_models/world';
 
 @Injectable()
 export class CoronaService {
-  baseUrl = 'https://corona.lmao.ninja/';
+  baseUrl = 'https://corona.lmao.ninja/v2/';
 
   constructor(private csHttp: HttpClient) {}
 
@@ -28,7 +28,6 @@ export class CoronaService {
 
   getCountryHistorical(country: string): Observable<CountryHistorical> {
     return this.csHttp.get<CountryHistorical>(
-      this.baseUrl + 'v2/historical/' + country
-    );
+      this.baseUrl + 'historical/' + country);
   }
 }

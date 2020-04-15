@@ -4,7 +4,40 @@
         <div class="card card-body mb-3">
             <div>
                 <tabset #staticTabs>
-                    <tab heading="Country Numbers">
+
+                    <tab heading="Global Figures">
+                        <div class="col-md-6">
+                            <div class="card p-6">
+                                <div class="card-body">
+
+                                    <div class="form-group">                                        
+                                        <div class="py-3" *ngIf="coronaGlobalNumbers">
+                                            <p>
+                                                latest updated: {{ globalLastUpdate }}
+                                            </p>
+                                            <p>
+                                                RAW data last updated: {{ coronaGlobalNumbers.updated }}
+                                            </p>
+                                            <p>
+                                                affected countries: {{ coronaGlobalNumbers.affectedCountries }}
+                                            </p>
+                                            <p>
+                                                cases: {{ coronaGlobalNumbers.cases }}
+                                            </p>
+                                            <p>
+                                                deaths: {{ coronaGlobalNumbers.deaths }}
+                                            </p>
+                                            <p>
+                                                recovered: {{ coronaGlobalNumbers.recovered }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+
+                    <tab heading="Country Status">
                         <div class="col-md-6">
                             <div class="card p-6">
                                 <div class="card-body">
@@ -20,7 +53,7 @@
                                             </select>
                                             <div *ngIf="!countryHistorical" class="input-group-append">
                                                 <button (click)="getHistory()" class="btn btn-danger" type="button"
-                                                    id="button-countrydetail">Get History</button>
+                                                    id="button-countrydetail">History Chart</button>
                                             </div>
                                         </div>
 
@@ -64,44 +97,15 @@
                                 </div>
                             </div>
                         </div>
-
                     </tab>
 
-                    <tab *ngIf="countryHistorical" heading="Country History">
-                        <pre class="card card-block card-header">{{ countryHistorical | json }}</pre>
-                    </tab>
-
-                    <tab heading="Global Numbers">
-                        <div class="col-md-6">
-                            <div class="card p-6">
-                                <div class="card-body">
-
-                                    <div class="form-group">
-                                        <button class="btn btn-danger" (click)="getGlobalNumbers()">(Re)Load
-                                            Data</button>
-                                        <div class="py-3" *ngIf="coronaGlobalNumbers">
-                                            <p>
-                                                latest updated: {{ globalLastUpdate }}
-                                            </p>
-                                            <p>
-                                                RAW data last updated: {{ coronaGlobalNumbers.updated }}
-                                            </p>
-                                            <p>
-                                                affected countries: {{ coronaGlobalNumbers.affectedCountries }}
-                                            </p>
-                                            <p>
-                                                cases: {{ coronaGlobalNumbers.cases }}
-                                            </p>
-                                            <p>
-                                                deaths: {{ coronaGlobalNumbers.deaths }}
-                                            </p>
-                                            <p>
-                                                recovered: {{ coronaGlobalNumbers.recovered }}
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                </div>
+                    <tab *ngIf="countryHistorical" heading="Chart {{ coronaCountry.country }}">
+                        <div>
+                            <div style="display: block">
+                                <canvas baseChart [datasets]="coronaChartData" [labels]="coronaChartLabels"
+                                    [options]="coronaChartOptions" [legend]="coronaChartLegend"
+                                    [chartType]="coronaChartType">
+                                </canvas>
                             </div>
                         </div>
                     </tab>

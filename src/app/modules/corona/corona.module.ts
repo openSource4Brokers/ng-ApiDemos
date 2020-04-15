@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ChartsModule } from 'ng2-charts';
 
 import { CoronaService } from './corona.service';
 import { CoronaRoutingModule } from './corona-routing.module';
@@ -14,6 +15,7 @@ import { SharedModule } from '../shared.module';
     CommonModule,
     SharedModule.forRoot(),
     TabsModule.forRoot(),
+    ChartsModule,
     CoronaRoutingModule
   ],
   providers: [CoronaService]
