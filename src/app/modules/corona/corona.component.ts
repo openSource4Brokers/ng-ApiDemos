@@ -1,6 +1,9 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Timeline } from './_models/timeline';
 import { DayData } from './_models/dayData';
 import { Component, OnInit } from '@angular/core';
+
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 import { World } from './_models/world';
 import { Country } from './_models/country';
@@ -13,6 +16,8 @@ import { CoronaService } from './corona.service';
   styleUrls: ['./corona.component.scss'],
 })
 export class CoronaComponent implements OnInit {
+  faSpinner = faSpinner;
+
   public coronaChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
@@ -36,7 +41,11 @@ export class CoronaComponent implements OnInit {
   globalLastUpdate: any;
   countryLastUpdate: any;
 
-  constructor(private cs: CoronaService) {}
+  graphLabel1: string;
+  graphLabel2: string;
+  graphLabel3: string;
+
+  constructor(private cs: CoronaService, private ts: TranslateService) {}
 
   ngOnInit(): void {
     this.getAllCountries();
@@ -95,12 +104,24 @@ export class CoronaComponent implements OnInit {
   prepareChart() {
     this.countryCases = Object.values(this.countryHistorical.timeline.cases);
     this.countryDeaths = Object.values(this.countryHistorical.timeline.deaths);
-    this.countryRecovered = Object.values(this.countryHistorical.timeline.recovered);
+    this.countryRecovered = Object.values(
+      this.countryHistorical.timeline.recovered
+    );
+
+    this.ts.get('CORONA.GraphLabel1').subscribe((res: string) => {
+      this.graphLabel1 = res;
+    });
+    this.ts.get('CORONA.GraphLabel2').subscribe((res: string) => {
+      this.graphLabel2 = res;
+    });
+    this.ts.get('CORONA.GraphLabel3').subscribe((res: string) => {
+      this.graphLabel3 = res;
+    });
 
     this.coronaChartData = [
-      { data: this.countryCases, label: 'Cases' },
-      { data: this.countryDeaths, label: 'Deaths' },
-      { data: this.countryRecovered, label: 'Recovered' },
+      { data: this.countryCases, label: this.graphLabel1 },
+      { data: this.countryDeaths, label: this.graphLabel2 },
+      { data: this.countryRecovered, label: this.graphLabel3 },
     ];
 
     this.coronaChartLabels = Object.keys(this.countryHistorical.timeline.cases);

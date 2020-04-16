@@ -5,30 +5,35 @@
             <div>
                 <tabset #staticTabs>
 
-                    <tab heading="Global Figures">
+                    <tab heading="{{ 'CORONA.TabGlobal' | translate }}">
                         <div class="col-md-6">
                             <div class="card p-6">
                                 <div class="card-body">
-
-                                    <div class="form-group">                                        
+                                    <div class="form-group">
+                                        <div *ngIf="!coronaGlobalNumbers">
+                                            <fa-icon class="fa-spin fa-3x mb-2" [icon]="faSpinner"></fa-icon>
+                                            <h4>{{ 'CORONA.MessageWaiting' | translate }}</h4>
+                                        </div>
                                         <div class="py-3" *ngIf="coronaGlobalNumbers">
                                             <p>
-                                                latest updated: {{ globalLastUpdate }}
+                                                {{ 'CORONA.LabelGlobalLatestUpdate' | translate }}:<br>
+                                                {{ globalLastUpdate }}
                                             </p>
                                             <p>
-                                                RAW data last updated: {{ coronaGlobalNumbers.updated }}
+                                                {{ 'CORONA.LabelGlobalAffectedCountries' | translate }}:
+                                                {{ coronaGlobalNumbers.affectedCountries }}
                                             </p>
                                             <p>
-                                                affected countries: {{ coronaGlobalNumbers.affectedCountries }}
+                                                {{ 'CORONA.LabelGlobalCases' | translate }}:
+                                                {{ coronaGlobalNumbers.cases }}
                                             </p>
                                             <p>
-                                                cases: {{ coronaGlobalNumbers.cases }}
+                                                {{ 'CORONA.LabelGlobalDeaths' | translate }}:
+                                                {{ coronaGlobalNumbers.deaths }}
                                             </p>
                                             <p>
-                                                deaths: {{ coronaGlobalNumbers.deaths }}
-                                            </p>
-                                            <p>
-                                                recovered: {{ coronaGlobalNumbers.recovered }}
+                                                {{ 'CORONA.LabelGlobalRecovered' | translate }}:
+                                                {{ coronaGlobalNumbers.recovered }}
                                             </p>
                                         </div>
                                     </div>
@@ -37,11 +42,10 @@
                         </div>
                     </tab>
 
-                    <tab heading="Country Status">
+                    <tab heading="{{ 'CORONA.TabCountryStatus' | translate }}">
                         <div class="col-md-6">
                             <div class="card p-6">
                                 <div class="card-body">
-
                                     <div class="form-group">
                                         <div class="input-group">
                                             <select (change)="getCountryDetails($event.target.selectedIndex)"
@@ -53,53 +57,58 @@
                                             </select>
                                             <div *ngIf="!countryHistorical" class="input-group-append">
                                                 <button (click)="getHistory()" class="btn btn-danger" type="button"
-                                                    id="button-countrydetail">History Chart</button>
+                                                    id="button-countrydetail">{{ 'CORONA.ButtonGetHistoryData' | translate }}</button>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="py-3" *ngIf="coronaCountry">
                                         <p>
-                                            last updated: {{ countryLastUpdate }}
+                                            {{ 'CORONA.LabelCountryLatestUpdate' | translate }}:<br>
+                                            {{ countryLastUpdate }}
                                         </p>
                                         <p>
-                                            RAW data last updated: {{ coronaCountry.updated }}
+                                            {{ 'CORONA.LabelCountryTodayCases' | translate }}:
+                                            {{ coronaCountry.todayCases }}
                                         </p>
                                         <p>
-                                            cases today: {{ coronaCountry.todayCases }}
+                                            {{ 'CORONA.LabelCountryTodayDeaths' | translate }}:
+                                            {{ coronaCountry.todayDeaths }}
                                         </p>
                                         <p>
-                                            deaths today: {{ coronaCountry.todayDeaths }}
+                                            {{ 'CORONA.LabelCountryTotalCases' | translate }}: {{ coronaCountry.cases }}
                                         </p>
                                         <p>
-                                            cases: {{ coronaCountry.cases }}
+                                            {{ 'CORONA.LabelCountryTotalDeaths' | translate }}:
+                                            {{ coronaCountry.deaths }}
                                         </p>
                                         <p>
-                                            deaths: {{ coronaCountry.deaths }}
+                                            {{ 'CORONA.LabelCountryTotalRecovered' | translate }}:
+                                            {{ coronaCountry.recovered }}
                                         </p>
                                         <p>
-                                            recovered: {{ coronaCountry.recovered }}
+                                            {{ 'CORONA.LabelCountryTotalActive' | translate }}:
+                                            {{ coronaCountry.active }}
                                         </p>
                                         <p>
-                                            active: {{ coronaCountry.active }}
+                                            {{ 'CORONA.LabelCountryTotalCritical' | translate }}:
+                                            {{ coronaCountry.critical }}
                                         </p>
                                         <p>
-                                            critical: {{ coronaCountry.critical }}
+                                            {{ 'CORONA.LabelCountryPerMillionCases' | translate }}:
+                                            {{ coronaCountry.casesPerOneMillion }}
                                         </p>
                                         <p>
-                                            cases per million: {{ coronaCountry.casesPerOneMillion }}
-                                        </p>
-                                        <p>
-                                            deaths per million: {{ coronaCountry.deathsPerOneMillion }}
+                                            {{ 'CORONA.LabelCountryPerMillionDeaths' | translate }}:
+                                            {{ coronaCountry.deathsPerOneMillion }}
                                         </p>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </tab>
 
-                    <tab *ngIf="countryHistorical" heading="Chart {{ coronaCountry.country }}">
+                    <tab *ngIf="countryHistorical"
+                        heading="{{ 'CORONA.TabGraphData' | translate }} {{ coronaCountry.country }}">
                         <div>
                             <div style="display: block">
                                 <canvas baseChart [datasets]="coronaChartData" [labels]="coronaChartLabels"
@@ -114,5 +123,4 @@
             </div>
         </div>
     </div>
-
 </section>

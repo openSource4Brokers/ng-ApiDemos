@@ -50,5 +50,33 @@
     "GithubUrl": "https://github.com/openSource4Brokers/ng-ApiDemos",
     "GithubButton": "Broncode op Github",
     "Image": "assets/images/about/about2.jfif"
+  },
+
+  "CORONA": {
+    "MessageWaiting": "Een ogenblik...",
+    "TabGlobal": "Cijfers Wereldwijd",
+    "LabelGlobalLatestUpdate": "Bijgewerkt op",
+    "LabelGlobalAffectedCountries": "Getroffen landen",
+    "LabelGlobalCases": "Aantal vaststellingen",
+    "LabelGlobalDeaths": "Aantal sterfgevallen",
+    "LabelGlobalRecovered": "Aantal hersteld",
+
+    "TabCountryStatus": "Status per land",
+    "ButtonGetHistoryData": "Grafiekdata ophalen",
+    "LabelCountryLatestUpdate": "Bijgewerkt op",
+    "LabelCountryTodayCases": "Vaststellingen vandaag",
+    "LabelCountryTodayDeaths": "Sterfgevallen vandaag",
+    "LabelCountryTotalCases": "Totaal vaststellingen zonder vandaag",
+    "LabelCountryTotalDeaths": "Totaal sterfgevallen zonder vandaag",
+    "LabelCountryTotalRecovered": "Totaal hersteld zonder vandaag",
+    "LabelCountryTotalActive": "Totaal in behandeling",
+    "LabelCountryTotalCritical": "Totaal kritiek",
+    "LabelCountryPerMillionCases": "Vaststellingen per miljoen inwoners",
+    "LabelCountryPerMillionDeaths": "Sterfgevallen per miljoen inwoners",
+
+    "TabGraphData": "Grafiek",
+    "GraphLabel1": "Zieken",
+    "GraphLabel2": "Sterfgevallen",
+    "GraphLabel3": "Hersteld"
   }
 }

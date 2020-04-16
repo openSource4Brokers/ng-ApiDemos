@@ -49,5 +49,33 @@
     "GithubUrl": "https://github.com/openSource4Brokers/ng-ApiDemos",
     "GithubButton": "Source code on Github",
     "Image": "assets/images/about/about2.jfif"
+  },
+
+  "CORONA": {
+    "MessageWaiting": "Moment...",
+    "TabGlobal": "Worldwide",
+    "LabelGlobalLatestUpdate": "Updated on",
+    "LabelGlobalAffectedCountries": "Getroffen landen",
+    "LabelGlobalCases": "Total cases",
+    "LabelGlobalDeaths": "Total deaths",
+    "LabelGlobalRecovered": "Total recovered",
+
+    "TabCountryStatus": "Country status",
+    "ButtonGetHistoryData": "Load Graph data",
+    "LabelCountryLatestUpdate": "Updated on",
+    "LabelCountryTodayCases": "Cases today",
+    "LabelCountryTodayDeaths": "Deaths today",
+    "LabelCountryTotalCases": "Total cases without today",
+    "LabelCountryTotalDeaths": "Total deaths without today",
+    "LabelCountryTotalRecovered": "Total recovered without today",
+    "LabelCountryTotalActive": "Totaal in behandeling",
+    "LabelCountryTotalCritical": "Total critical",
+    "LabelCountryPerMillionCases": "Cases per million",
+    "LabelCountryPerMillionDeaths": "Deaths per million",
+
+    "TabGraphData": "Graph",
+    "GraphLabel1": "Cases",
+    "GraphLabel2": "Deaths",
+    "GraphLabel3": "Recovered"
   }
 }
