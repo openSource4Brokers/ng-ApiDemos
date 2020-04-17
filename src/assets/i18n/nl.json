@@ -53,7 +53,8 @@
   },
 
   "CORONA": {
-    "MessageWaiting": "Een ogenblik...",
+    "MessageApiWaiting": "Een ogenblik...",
+    "MessageApiError": "API is nu niet beschikbaar. Probeer later opnieuw!",
     "TabGlobal": "Cijfers Wereldwijd",
     "LabelGlobalLatestUpdate": "Bijgewerkt op",
     "LabelGlobalAffectedCountries": "Getroffen landen",

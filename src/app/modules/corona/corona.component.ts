@@ -17,6 +17,8 @@ import { CoronaService } from './corona.service';
 })
 export class CoronaComponent implements OnInit {
   faSpinner = faSpinner;
+  apiWaiting = false;
+  apiError = false;
 
   public coronaChartOptions = {
     scaleShowVerticalLines: false,
@@ -52,15 +54,21 @@ export class CoronaComponent implements OnInit {
   }
 
   getAllCountries() {
+    this.apiWaiting = true;
     const countries = this.cs.getAllCountries();
     countries.subscribe(
       (data: Country[]) => {
         this.coronaCountries = data;
         this.getCountryDetails(0);
+        this.apiWaiting = false;
         this.getGlobalNumbers();
         // console.log(this.coronaCountries);
       },
-      (err) => console.log(err)
+      (err) => {
+        // console.log(err);
+        this.apiWaiting = false;
+        this.apiError = true;
+      }
     );
   }
 
@@ -96,7 +104,9 @@ export class CoronaComponent implements OnInit {
         this.prepareChart();
       },
       (err) => {
-        console.log(err);
+        // console.log(err);
+        this.coronaGlobalNumbers = null;
+        this.apiError = true;
       }
     );
   }
