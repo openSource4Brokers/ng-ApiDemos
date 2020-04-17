@@ -1,4 +1,4 @@
-# ng-ApiDemos - open source api demos using Angular
+# ng-ApiDemos - API demos using Angular 9
 ## Getting started for users
 Live version here: [site](https://apidemos.vsoft.be)
 ## API Sources used for this app
