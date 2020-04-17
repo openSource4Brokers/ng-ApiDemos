@@ -3,7 +3,7 @@ import { Timeline } from './_models/timeline';
 import { DayData } from './_models/dayData';
 import { Component, OnInit } from '@angular/core';
 
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faThumbtack } from '@fortawesome/free-solid-svg-icons';
 
 import { World } from './_models/world';
 import { Country } from './_models/country';
@@ -17,8 +17,12 @@ import { CoronaService } from './corona.service';
 })
 export class CoronaComponent implements OnInit {
   faSpinner = faSpinner;
+  faPin = faThumbtack;
+
   apiWaiting = false;
   apiError = false;
+  selectedCountryName: string;
+  selectedCountryIndex: number;
 
   public coronaChartOptions = {
     scaleShowVerticalLines: false,
@@ -50,7 +54,20 @@ export class CoronaComponent implements OnInit {
   constructor(private cs: CoronaService, private ts: TranslateService) {}
 
   ngOnInit(): void {
-    this.getAllCountries();
+    this.getGlobalNumbers();
+  }
+
+  setDefaultCountry() {
+    // Add to local storage
+    console.log(this.selectedCountryName);
+    localStorage.setItem(
+      'coronaApi_DefaultCountryName',
+      this.selectedCountryName
+    );
+    localStorage.setItem(
+      'coronaApi_DefaultCountryIndex',
+      this.selectedCountryIndex.toString()
+    );
   }
 
   getAllCountries() {
@@ -59,9 +76,21 @@ export class CoronaComponent implements OnInit {
     countries.subscribe(
       (data: Country[]) => {
         this.coronaCountries = data;
-        this.getCountryDetails(0);
+        // this.domEntries = JSON.parse(localStorage.getItem('cddEntries_Template'));
+        const tmpCountryName = localStorage.getItem(
+          'coronaApi_DefaultCountryName'
+        );
+        const tmpCountryIndex = +localStorage.getItem(
+          'coronaApi_DefaultCountryIndex'
+        );
+
+        if (tmpCountryName) {
+          this.getCountryDetails(tmpCountryIndex);
+          this.getHistory(tmpCountryName);
+        } else {
+          this.getCountryDetails(0);
+        }
         this.apiWaiting = false;
-        this.getGlobalNumbers();
         // console.log(this.coronaCountries);
       },
       (err) => {
@@ -73,15 +102,20 @@ export class CoronaComponent implements OnInit {
   }
 
   getGlobalNumbers() {
+    this.apiWaiting = true;
     const corona = this.cs.getGlobal();
     corona.subscribe(
       (data: World) => {
         this.coronaGlobalNumbers = data;
         // console.log(this.coronaGlobalNumbers);
         this.globalLastUpdate = new Date(this.coronaGlobalNumbers.updated);
+        this.getAllCountries();
+        this.apiWaiting = false;
       },
       (err) => {
-        console.log(err);
+        // console.log(err);
+        this.apiWaiting = false;
+        this.apiError = true;
       }
     );
   }
@@ -90,14 +124,15 @@ export class CoronaComponent implements OnInit {
     this.countryHistorical = null;
     if (this.coronaCountries) {
       this.coronaCountry = this.coronaCountries[indexInList];
+      this.selectedCountryName = this.coronaCountry.country;
+      this.selectedCountryIndex = indexInList;
       this.countryLastUpdate = new Date(this.coronaCountry.updated);
-      // console.log(this.coronaCountry.country);
     } else {
     }
   }
 
-  getHistory() {
-    const historical = this.cs.getCountryHistorical(this.coronaCountry.country);
+  getHistory(country: string) {
+    const historical = this.cs.getCountryHistorical(country, 60);
     historical.subscribe(
       (data: CountryHistorical) => {
         this.countryHistorical = data;
@@ -135,7 +170,5 @@ export class CoronaComponent implements OnInit {
     ];
 
     this.coronaChartLabels = Object.keys(this.countryHistorical.timeline.cases);
-    // console.log(this.coronaChartLabels);
-    // console.log(this.coronaChartData);
   }
 }

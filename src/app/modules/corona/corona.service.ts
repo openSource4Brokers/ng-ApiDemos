@@ -21,13 +21,15 @@ export class CoronaService {
   }
 
   getSingleCountry(country: string): Observable<Country> {
-    return this.csHttp.get<Country>(
-      this.baseUrl + 'countries/' + country
-    );
+    return this.csHttp.get<Country>(this.baseUrl + 'countries/' + country);
   }
 
-  getCountryHistorical(country: string): Observable<CountryHistorical> {
+  getCountryHistorical(
+    country: string,
+    lastDays: number
+  ): Observable<CountryHistorical> {
     return this.csHttp.get<CountryHistorical>(
-      this.baseUrl + 'historical/' + country);
+      this.baseUrl + 'historical/' + country + '?lastdays=' + lastDays
+    );
   }
 }

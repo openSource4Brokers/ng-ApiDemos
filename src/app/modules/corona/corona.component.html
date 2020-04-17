@@ -14,29 +14,62 @@
                                             <fa-icon class="fa-spin fa-3x mb-2" [icon]="faSpinner"></fa-icon>
                                             <h4>{{ 'CORONA.MessageApiWaiting' | translate }}</h4>
                                         </div>
-                                        <div *ngIf="apiError">                                            
+                                        <div *ngIf="apiError">
                                             <h4>{{ 'CORONA.MessageApiError' | translate }}</h4>
                                         </div>
                                         <div class="py-3" *ngIf="coronaGlobalNumbers">
                                             <p>
-                                                {{ 'CORONA.LabelGlobalLatestUpdate' | translate }}:<br>
+                                                {{ 'CORONA.WorldLabelLatestUpdate' | translate }}:<br>
                                                 {{ globalLastUpdate }}
                                             </p>
                                             <p>
-                                                {{ 'CORONA.LabelGlobalAffectedCountries' | translate }}:
-                                                {{ coronaGlobalNumbers.affectedCountries }}
-                                            </p>
-                                            <p>
-                                                {{ 'CORONA.LabelGlobalCases' | translate }}:
+                                                {{ 'CORONA.WorldLabelCases' | translate }}:
                                                 {{ coronaGlobalNumbers.cases }}
                                             </p>
                                             <p>
-                                                {{ 'CORONA.LabelGlobalDeaths' | translate }}:
+                                                {{ 'CORONA.WorldLabelTodayCases' | translate }}:
+                                                {{ coronaGlobalNumbers.todayCases }}
+                                            </p>
+
+                                            <p>
+                                                {{ 'CORONA.WorldLabelDeaths' | translate }}:
                                                 {{ coronaGlobalNumbers.deaths }}
                                             </p>
                                             <p>
-                                                {{ 'CORONA.LabelGlobalRecovered' | translate }}:
+                                                {{ 'CORONA.WorldLabelTodayDeaths' | translate }}:
+                                                {{ coronaGlobalNumbers.todayDeaths }}
+                                            </p>
+                                            <p>
+                                                {{ 'CORONA.WorldLabelRecovered' | translate }}:
                                                 {{ coronaGlobalNumbers.recovered }}
+                                            </p>
+                                            <p>
+                                                {{ 'CORONA.WorldLabelActive' | translate }}:
+                                                {{ coronaGlobalNumbers.active }}
+                                            </p>
+                                            <p>
+                                                {{ 'CORONA.WorldLabelCritical' | translate }}:
+                                                {{ coronaGlobalNumbers.critical }}
+                                            </p>
+                                            <p>
+                                                {{ 'CORONA.WorldLabelCasesPerOneMillion' | translate }}:
+                                                {{ coronaGlobalNumbers.casesPerOneMillion }}
+                                            </p>
+                                            <p>
+                                                {{ 'CORONA.WorldLabelDeathsPerOneMillion' | translate }}:
+                                                {{ coronaGlobalNumbers.deathsPerOneMillion }}
+                                            </p>
+                                            <p>
+                                                {{ 'CORONA.WorldLabelTests' | translate }}:
+                                                {{ coronaGlobalNumbers.tests }}
+                                            </p>
+                                            <p>
+                                                {{ 'CORONA.WorldLabelTestsPerOneMillion' | translate }}:
+                                                {{ coronaGlobalNumbers.testsPerOneMillion }}
+                                            </p>
+                                            <p>
+                                                {{ 'CORONA.WorldLabelAffectedCountries' | translate }}:
+                                                {{ coronaGlobalNumbers.affectedCountries }}
                                             </p>
                                         </div>
                                     </div>
@@ -45,7 +78,7 @@
                         </div>
                     </tab>
 
-                    <tab heading="{{ 'CORONA.TabCountryStatus' | translate }}">
+                    <tab heading="{{ 'CORONA.TabCountryStatus' | translate }} {{ selectedCountryName }} ">
                         <div class="col-md-6">
                             <div class="card p-6">
                                 <div class="card-body">
@@ -59,8 +92,13 @@
                                                 </option>
                                             </select>
                                             <div *ngIf="!countryHistorical" class="input-group-append">
-                                                <button (click)="getHistory()" class="btn btn-danger" type="button"
+                                                <button (click)="getHistory(selectedCountryName)"
+                                                    class="btn btn-primary" type="button"
                                                     id="button-countrydetail">{{ 'CORONA.ButtonGetHistoryData' | translate }}</button>
+
+                                                <button (click)="setDefaultCountry()" class="btn btn-success">
+                                                    <fa-icon class="fa-spin fa-1x" [icon]="faPin"></fa-icon>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -104,6 +142,14 @@
                                             {{ 'CORONA.LabelCountryPerMillionDeaths' | translate }}:
                                             {{ coronaCountry.deathsPerOneMillion }}
                                         </p>
+                                        <p>
+                                            {{ 'CORONA.LabelCountryTests' | translate }}:
+                                            {{ coronaCountry.tests }}
+                                        </p>
+                                        <p>
+                                            {{ 'CORONA.LabelCountryPerMillionTests' | translate }}:
+                                            {{ coronaCountry.testsPerOneMillion }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +157,7 @@
                     </tab>
 
                     <tab *ngIf="countryHistorical"
-                        heading="{{ 'CORONA.TabGraphData' | translate }} {{ coronaCountry.country }}">
+                        heading="{{ 'CORONA.TabGraphData' | translate }} {{ selectedCountryName }}">
                         <div>
                             <div style="display: block">
                                 <canvas baseChart [datasets]="coronaChartData" [labels]="coronaChartLabels"

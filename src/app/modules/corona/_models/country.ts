@@ -1,6 +1,7 @@
 import { CountryInfo } from './countryInfo';
 
 export interface Country {
+  updated: number;
   country: string;
   countryInfo: CountryInfo;
   cases: number;
@@ -12,7 +13,8 @@ export interface Country {
   critical: number;
   casesPerOneMillion?: number;
   deathsPerOneMillion?: number;
-  updated: number;
+  tests: number;
+  testsPerOneMillion?: number;
 }
 // https://corona.lmao.ninja/countries/Belgium
 // use jsontots.com to set up the models with ease!
