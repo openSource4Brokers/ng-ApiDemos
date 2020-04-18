@@ -9,6 +9,18 @@ import { World } from './_models/world';
 import { Country } from './_models/country';
 import { CountryHistorical } from './_models/countryHistorical';
 import { CoronaService } from './corona.service';
+import { TabDirective } from 'ngx-bootstrap/tabs/ngx-bootstrap-tabs';
+
+function setSelectedIndex(s, v: string) {
+  // tslint:disable-next-line: prefer-for-of
+  for (let i = 0; i < s.options.length; i++) {
+    if (s.options[i].text === v) {
+      s.options[i].selected = true;
+      console.log('found: ' + s.options[i].text);
+      return;
+    }
+  }
+}
 
 @Component({
   selector: 'app-corona',
@@ -21,6 +33,9 @@ export class CoronaComponent implements OnInit {
 
   apiWaiting = false;
   apiError = false;
+
+  preferdCountry: string;
+  preferdIsRefreshed = false;
   selectedCountryName: string;
   selectedCountryIndex: number;
 
@@ -57,9 +72,22 @@ export class CoronaComponent implements OnInit {
     this.getGlobalNumbers();
   }
 
+  onSelect(data: TabDirective): void {
+    if (data.id === 'status') {
+      if (this.preferdCountry !== '') {
+        if (!this.preferdIsRefreshed) {
+          setSelectedIndex(
+            document.getElementById('thisCountry'),
+            this.preferdCountry
+          );
+          this.preferdIsRefreshed = true;
+        }
+      }
+    }
+  }
+
   setDefaultCountry() {
     // Add to local storage
-    console.log(this.selectedCountryName);
     localStorage.setItem(
       'coronaApi_DefaultCountryName',
       this.selectedCountryName
@@ -76,20 +104,21 @@ export class CoronaComponent implements OnInit {
     countries.subscribe(
       (data: Country[]) => {
         this.coronaCountries = data;
-        // this.domEntries = JSON.parse(localStorage.getItem('cddEntries_Template'));
-        const tmpCountryName = localStorage.getItem(
+        this.preferdCountry = localStorage.getItem(
           'coronaApi_DefaultCountryName'
         );
         const tmpCountryIndex = +localStorage.getItem(
           'coronaApi_DefaultCountryIndex'
         );
 
-        if (tmpCountryName) {
+        if (this.preferdCountry) {
+          this.selectedCountryName = this.preferdCountry;
           this.getCountryDetails(tmpCountryIndex);
-          this.getHistory(tmpCountryName);
+          this.getHistory(this.preferdCountry);
         } else {
           this.getCountryDetails(0);
         }
+
         this.apiWaiting = false;
         // console.log(this.coronaCountries);
       },

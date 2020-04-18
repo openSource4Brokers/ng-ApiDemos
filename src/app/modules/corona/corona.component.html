@@ -5,7 +5,7 @@
             <div>
                 <tabset #staticTabs>
 
-                    <tab heading="{{ 'CORONA.TabGlobal' | translate }}">
+                    <tab id="global" heading="{{ 'CORONA.TabGlobal' | translate }}" (selectTab)="onSelect($event)">
                         <div class="col-md-6">
                             <div class="card p-6">
                                 <div class="card-body">
@@ -78,13 +78,15 @@
                         </div>
                     </tab>
 
-                    <tab heading="{{ 'CORONA.TabCountryStatus' | translate }} {{ selectedCountryName }} ">
+                    <tab id="status" heading="{{ 'CORONA.TabCountryStatus' | translate }} {{ selectedCountryName }} "
+                        (selectTab)="onSelect($event)">
                         <div class="col-md-6">
                             <div class="card p-6">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <select (change)="getCountryDetails($event.target.selectedIndex)"
+                                            <select id="thisCountry"
+                                                (change)="getCountryDetails($event.target.selectedIndex)"
                                                 class="custom-select" aria-describedby="button-countrydetail"
                                                 #thisCountry>
                                                 <option *ngFor="let country of coronaCountries">
@@ -102,6 +104,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="py-3" *ngIf="coronaCountry">
                                         <p>
                                             {{ 'CORONA.LabelCountryLatestUpdate' | translate }}:<br>
@@ -156,8 +159,9 @@
                         </div>
                     </tab>
 
-                    <tab *ngIf="countryHistorical"
-                        heading="{{ 'CORONA.TabGraphData' | translate }} {{ selectedCountryName }}">
+                    <tab id="graph" *ngIf="countryHistorical"
+                        heading="{{ 'CORONA.TabGraphData' | translate }} {{ selectedCountryName }}"
+                        (selectTab)="onSelect($event)">
                         <div>
                             <div style="display: block">
                                 <canvas baseChart [datasets]="coronaChartData" [labels]="coronaChartLabels"
