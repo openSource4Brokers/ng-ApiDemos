@@ -12,10 +12,10 @@
                                     <div class="form-group">
                                         <div *ngIf="apiWaiting">
                                             <fa-icon class="fa-spin fa-3x mb-2" [icon]="faSpinner"></fa-icon>
-                                            <h4>{{ 'CORONA.MessageApiWaiting' | translate }}</h4>
+                                            <h4>{{ 'COMMON.MessageApiWaiting' | translate }}</h4>
                                         </div>
                                         <div *ngIf="apiError">
-                                            <h4>{{ 'CORONA.MessageApiError' | translate }}</h4>
+                                            <h4>{{ 'COMMON.MessageApiError' | translate }}</h4>
                                         </div>
                                         <div class="py-3" *ngIf="coronaGlobalNumbers">
                                             <p>

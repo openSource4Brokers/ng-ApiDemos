@@ -2,8 +2,8 @@
 ## Getting started for users
 Live version here: [site](https://apidemos.vsoft.be)
 ## API Sources used for this app
-- [NovelCOVID/API](https://github.com/novelcovid/api)
-- [DOCS](https://corona.lmao.ninja/docs/)
+- [NovelCOVID/API](https://github.com/novelcovid/api) - [API Reference](https://corona.lmao.ninja/docs/)
+- [Sector Catalog](http://app.sectorcatalog.be/SectorCatalog/)
 ## Getting started for developers
 - [Install NodeJS](https://nodejs.org/). Hint: eventually install and use [nvm](https://medium.com/@Joachim8675309/installing-node-js-with-nvm-4dc469c977d9) for easy installing and/or switching between node versions
 - Clone this repository: `git clone https://github.com/openSource4Brokers/ng-ApiDemos`.
@@ -50,7 +50,7 @@ Before building, set resolveJsonModule to 'true' :
     ...
 ```
 ## Good practice 1: use lazy loading modules
-- Ex. a home module in modules folder: `ng generate module modules/home --route home --module app.module`
+- Ex. a home module in modules folder: `ng generate module modules/sector-catalog --route sector-catalog --module app.module`
 - Ex. unsplash module: `ng generate module modules/unsplash --route unsplash --module app.module`
 
 ## Good practice 2: Update Angular when needed

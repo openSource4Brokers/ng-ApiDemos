@@ -11,6 +11,11 @@
     "Title": "ng-ApiDemo"
   },
 
+  "COMMON": {
+    "MessageApiWaiting": "Een ogenblik...",
+    "MessageApiError": "API is nu niet beschikbaar. Probeer later opnieuw!"
+  },
+
   "HOME": {
     "Carousel-Image1": "assets/images/carousel/corona1.jfif",
     "Carousel-Alt1": "eerste slide",
@@ -53,8 +58,6 @@
   },
 
   "CORONA": {
-    "MessageApiWaiting": "Een ogenblik...",
-    "MessageApiError": "API is nu niet beschikbaar. Probeer later opnieuw!",    
     "TabGlobal": "Cijfers Wereldwijd",
 
     "WorldLabelLatestUpdate": "Bijgewerkt op",

@@ -1,0 +1,480 @@
+<div class="row">
+  <div class="col-md-6">
+    <a
+      [routerLink]="['/']"
+      routerLinkActive="router-link-active"
+      class="btn btn-link"
+    >
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard
+    </a>
+  </div>
+</div>
+
+<br />
+<h3 class="text-info">{{ catalog.DescriptionNL }}</h3>
+<br />
+
+<!-- <div class="center">
+  <app-bt-tabs>
+    <app-bt-tab [tabTitle]="'Json'"> {{ catalog | json }} </app-bt-tab>
+    <app-bt-tab [tabTitle]="'Angular Formgroup'"> -->
+
+<form [formGroup]="catalogForm">
+  <div class="form-group">
+    <label for="brokerComments">Broker Comments</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Broker comments"
+      formControlName="brokerComments"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="brokerCompanyId">Broker CompanyId</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Broker company id"
+      formControlName="brokerCompanyId"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="calculatedUrl">Calculated Url</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Calculated url"
+      formControlName="calculatedUrl"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="catalogItemGuid">Catalog Item Guid</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Catalog item guid"
+      formControlName="catalogItemGuid"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="categoryDescription">Category Description</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Category description"
+      formControlName="categoryDescription"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="categoryFR">Category FR</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Category FR"
+      formControlName="categoryFR"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="categoryKey">Category Key</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Category key"
+      formControlName="categoryKey"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="companyCode">Company Code</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Company code"
+      formControlName="companyCode"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="companyName">Company Name</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Company name"
+      formControlName="companyName"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="companyNameFR">Company Name FR</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Company name FR"
+      formControlName="companyNameFR"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="deleted">Deleted</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Deleted"
+      formControlName="deleted"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Description"
+      formControlName="description"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionFR">Description FR</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Description FR"
+      formControlName="descriptionFR"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionLongFR">Long Description FR</label>
+    <textarea
+      class="form-control"
+      rows="3"
+      placeholder="Long description FR"
+      formControlName="descriptionLongFR"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionLongNL">Long Description NL</label>
+    <textarea
+      class="form-control"
+      rows="3"
+      placeholder="Long description NL"
+      formControlName="descriptionLongNL"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionNL">Description NL</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Description NL"
+      formControlName="descriptionNL"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="displayModeDescription">Display Mode Description</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Display mode description"
+      formControlName="displayModeDescription"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="displayModeKey">Display Mode Key</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Display mode key"
+      formControlName="displayModeKey"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="friendlySizeKey">Friendly Size Key</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Friendly size key"
+      formControlName="friendlySizeKey"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="guarenteeKey">Guarentee Key</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Guarentee key"
+      formControlName="guarenteeKey"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="heigt">Height</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Height"
+      formControlName="height"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="itemValidity">Item Validity</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Item validity"
+      formControlName="itemValidity"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="itemVisibleFrom">Item Visible From</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Item visible from"
+      formControlName="itemVisibleFrom"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="itemVisibleUntil">Item Visible Until</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Item visible until"
+      formControlName="itemVisibleUntil"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="language">Language</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Language"
+      formControlName="language"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="productDomainCodeDescriptionFR"
+      >Product Domain Code Description FR</label
+    >
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Product domain code description FR"
+      formControlName="productDomainCodeDescriptionFR"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="productDomainCodeDescriptionNL"
+      >Product Domain Code Description</label
+    >
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Product domain code description"
+      formControlName="productDomainCodeDescriptionNL"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="productDomainCodeKey">Product Domain Code Key</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Product domain code key"
+      formControlName="productDomainCodeKey"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="productGuid">Product GUID</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Product guid"
+      formControlName="productGuid"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="productName">Product Name</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Product name"
+      formControlName="productName"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="productValidity">Product Validity</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Product validity"
+      formControlName="productValidity"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="productVisibleFrom">Product Visible From</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Product visible from"
+      formControlName="productVisibleFrom"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="productVisibleUntil">Product Visible Until</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Product visible until"
+      formControlName="productVisibleUntil"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="reference">Reference</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Reference"
+      formControlName="reference"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="secureGUID">Secure GUID</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Secure guid"
+      formControlName="secureGUID"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="subCategoryDescription">Sub Category Description</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Sub category description"
+      formControlName="subCategoryDescription"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="subCategoryFR">Sub Category FR</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Sub category FR"
+      formControlName="subCategoryFR"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="subCategoryKey">Sub Category Key</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Sub category key"
+      formControlName="subCategoryKey"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="systemIdentifier">System Identifier</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="System identifier"
+      formControlName="systemIdentifier"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="targetKey">Target Key</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Target key"
+      formControlName="targetKey"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Title"
+      formControlName="title"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="url">Url</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Url"
+      formControlName="url"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="version">Version</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Version"
+      formControlName="version"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="width">Width</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Width"
+      formControlName="width"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="origin">Origin</label>
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Origin"
+      formControlName="origin"
+    />
+  </div>
+</form>
+
+<!--  </app-bt-tab>
+  </app-bt-tabs>
+</div> -->

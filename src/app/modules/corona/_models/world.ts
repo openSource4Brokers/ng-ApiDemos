@@ -1,4 +1,4 @@
-export interface World {
+export interface IWorld {
   updated: number;
   cases: number;
   todayCases: number;

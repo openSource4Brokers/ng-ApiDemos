@@ -1,9 +1,9 @@
-import { CountryInfo } from './countryInfo';
+import { ICountryInfo } from './countryInfo';
 
-export interface Country {
+export interface ICountry {
   updated: number;
   country: string;
-  countryInfo: CountryInfo;
+  countryInfo: ICountryInfo;
   cases: number;
   todayCases: number;
   deaths: number;

@@ -1,4 +1,4 @@
-export interface DayData {
+export interface IDayData {
   dayOfYear: string;
   amount: number;
 }

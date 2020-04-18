@@ -8,6 +8,13 @@ const routes: Routes = [
       import('./modules/home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'sector-catalog',
+    loadChildren: () =>
+      import('./modules/sector-catalog/sector-catalog.module').then(
+        (m) => m.SectorCatalogModule
+      ),
+  },
+  {
     path: 'corona',
     loadChildren: () =>
       import('./modules/corona/corona.module').then((m) => m.CoronaModule),

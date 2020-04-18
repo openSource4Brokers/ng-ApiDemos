@@ -1,0 +1,87 @@
+<!-- SECTOR-CATALOG SECTION -->
+<section id="sector-catalog" class="py-2">
+  <div class="container">
+    <div class="card card-body mb-3">
+      <div>
+        <tabset #staticTabs>
+          <tab heading="Fidea">
+            <app-catalogs-card-list [catalogs]="catalogs33$ | async">
+            </app-catalogs-card-list>
+          </tab>
+          <tab heading="Axa">
+            <app-catalogs-card-list [catalogs]="catalogs39$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="AG Insurance">
+            <app-catalogs-card-list [catalogs]="catalogs79$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Baloise">
+            <app-catalogs-card-list [catalogs]="catalogs96$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Allianz">
+            <app-catalogs-card-list [catalogs]="catalogs97$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Athora">
+            <app-catalogs-card-list [catalogs]="catalogs145$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Arag">
+            <app-catalogs-card-list [catalogs]="catalogs445$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Euromex">
+            <app-catalogs-card-list [catalogs]="catalogs463$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Das">
+            <app-catalogs-card-list [catalogs]="catalogs687$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Optimco">
+            <app-catalogs-card-list [catalogs]="catalogs2393$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Feprabel">
+            <app-catalogs-card-list [catalogs]="catalogs4000$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Brocom">
+            <app-catalogs-card-list [catalogs]="catalogs9900$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Fvf">
+            <app-catalogs-card-list [catalogs]="catalogs40001$ | async">
+            </app-catalogs-card-list>
+          </tab>
+
+          <tab heading="Europ Assistance">
+            <app-catalogs-card-list [catalogs]="catalogs47696$ | async"></app-catalogs-card-list>
+          </tab>
+        </tabset>
+        <div *ngIf="apiWaiting">
+          <h4>
+            <fa-icon class="fa-spin fa-3x mb-2" [icon]="faSpinner"></fa-icon>
+            {{ 'COMMON.MessageApiWaiting' | translate }}
+          </h4>
+        </div>
+        <div *ngIf="apiError">
+          <h4>{{ 'COMMON.MessageApiError' | translate }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

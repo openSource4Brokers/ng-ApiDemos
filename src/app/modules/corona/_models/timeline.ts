@@ -1,7 +1,7 @@
-import { DayData } from './dayData';
+import { IDayData } from './dayData';
 
-export interface Timeline {
-  cases: DayData[];
-  deaths: DayData[];
-  recovered: DayData[];
+export interface ITimeline {
+  cases: IDayData[];
+  deaths: IDayData[];
+  recovered: IDayData[];
 }

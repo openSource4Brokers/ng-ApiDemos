@@ -11,6 +11,11 @@
     "Title": "ng-ApiDemo"
   },
 
+  "COMMON": {
+    "MessageWaiting": "Moment...",
+    "MessageApiError": "API is not available now. Try again later!",
+  },
+
   "HOME": {
     "Carousel-Image1": "assets/images/carousel/corona1.jfif",
     "Carousel-Alt1": "first slide",
@@ -51,9 +56,7 @@
     "Image": "assets/images/about/about2.jfif"
   },
 
-  "CORONA": {
-    "MessageWaiting": "Moment...",
-    "MessageApiError": "API is not available now. Try again later!",
+  "CORONA": {    
     "TabGlobal": "Worldwide",
 
     "WorldLabelLatestUpdate": "Updated on",

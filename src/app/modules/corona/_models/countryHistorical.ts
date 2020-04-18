@@ -1,7 +1,7 @@
-import { Timeline } from './timeline';
+import { ITimeline } from './timeline';
 
-export interface CountryHistorical {
+export interface ICountryHistorical {
   country: string;
   provinces: any[];
-  timeline: Timeline;
+  timeline: ITimeline;
 }

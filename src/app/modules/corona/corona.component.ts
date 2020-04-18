@@ -1,15 +1,15 @@
-import { TranslateService } from '@ngx-translate/core';
-import { Timeline } from './_models/timeline';
-import { DayData } from './_models/dayData';
 import { Component, OnInit } from '@angular/core';
 
+import { TranslateService } from '@ngx-translate/core';
+import { TabDirective } from 'ngx-bootstrap/tabs/ngx-bootstrap-tabs';
 import { faSpinner, faThumbtack } from '@fortawesome/free-solid-svg-icons';
 
-import { World } from './_models/world';
-import { Country } from './_models/country';
-import { CountryHistorical } from './_models/countryHistorical';
 import { CoronaService } from './corona.service';
-import { TabDirective } from 'ngx-bootstrap/tabs/ngx-bootstrap-tabs';
+import { ICountry } from './_models/country';
+import { ICountryHistorical } from './_models/countryHistorical';
+import { IDayData } from './_models/dayData';
+import { ITimeline } from './_models/timeline';
+import { IWorld } from './_models/world';
 
 function setSelectedIndex(s, v: string) {
   // tslint:disable-next-line: prefer-for-of
@@ -31,7 +31,7 @@ export class CoronaComponent implements OnInit {
   faSpinner = faSpinner;
   faPin = faThumbtack;
 
-  apiWaiting = false;
+  apiWaiting = true;
   apiError = false;
 
   preferdCountry: string;
@@ -45,19 +45,19 @@ export class CoronaComponent implements OnInit {
   };
 
   coronaChartData: any;
-  coronaGlobalNumbers: World;
-  coronaCountries: Country[];
-  coronaCountry: Country;
-  countryHistorical: CountryHistorical;
-  countryTimeline: Timeline;
+  coronaGlobalNumbers: IWorld;
+  coronaCountries: ICountry[];
+  coronaCountry: ICountry;
+  countryHistorical: ICountryHistorical;
+  countryTimeline: ITimeline;
 
   public coronaChartLabels: string[];
   public coronaChartType = 'line';
   public coronaChartLegend = true;
 
-  countryCases: DayData[];
-  countryDeaths: DayData[];
-  countryRecovered: DayData[];
+  countryCases: IDayData[];
+  countryDeaths: IDayData[];
+  countryRecovered: IDayData[];
 
   globalLastUpdate: any;
   countryLastUpdate: any;
@@ -102,7 +102,7 @@ export class CoronaComponent implements OnInit {
     this.apiWaiting = true;
     const countries = this.cs.getAllCountries();
     countries.subscribe(
-      (data: Country[]) => {
+      (data: ICountry[]) => {
         this.coronaCountries = data;
         this.preferdCountry = localStorage.getItem(
           'coronaApi_DefaultCountryName'
@@ -134,7 +134,7 @@ export class CoronaComponent implements OnInit {
     this.apiWaiting = true;
     const corona = this.cs.getGlobal();
     corona.subscribe(
-      (data: World) => {
+      (data: IWorld) => {
         this.coronaGlobalNumbers = data;
         // console.log(this.coronaGlobalNumbers);
         this.globalLastUpdate = new Date(this.coronaGlobalNumbers.updated);
@@ -163,7 +163,7 @@ export class CoronaComponent implements OnInit {
   getHistory(country: string) {
     const historical = this.cs.getCountryHistorical(country, 60);
     historical.subscribe(
-      (data: CountryHistorical) => {
+      (data: ICountryHistorical) => {
         this.countryHistorical = data;
         this.prepareChart();
       },

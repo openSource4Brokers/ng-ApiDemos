@@ -1,10 +1,10 @@
-import { CountryHistorical } from './_models/countryHistorical';
+import { ICountryHistorical } from './_models/countryHistorical';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Country } from './_models/country';
-import { World } from './_models/world';
+import { ICountry } from './_models/country';
+import { IWorld } from './_models/world';
 
 @Injectable()
 export class CoronaService {
@@ -12,23 +12,23 @@ export class CoronaService {
 
   constructor(private csHttp: HttpClient) {}
 
-  getGlobal(): Observable<World> {
-    return this.csHttp.get<World>(this.baseUrl + 'all');
+  getGlobal(): Observable<IWorld> {
+    return this.csHttp.get<IWorld>(this.baseUrl + 'all');
   }
 
-  getAllCountries(): Observable<Country[]> {
-    return this.csHttp.get<Country[]>(this.baseUrl + 'countries');
+  getAllCountries(): Observable<ICountry[]> {
+    return this.csHttp.get<ICountry[]>(this.baseUrl + 'countries');
   }
 
-  getSingleCountry(country: string): Observable<Country> {
-    return this.csHttp.get<Country>(this.baseUrl + 'countries/' + country);
+  getSingleCountry(country: string): Observable<ICountry> {
+    return this.csHttp.get<ICountry>(this.baseUrl + 'countries/' + country);
   }
 
   getCountryHistorical(
     country: string,
     lastDays: number
-  ): Observable<CountryHistorical> {
-    return this.csHttp.get<CountryHistorical>(
+  ): Observable<ICountryHistorical> {
+    return this.csHttp.get<ICountryHistorical>(
       this.baseUrl + 'historical/' + country + '?lastdays=' + lastDays
     );
   }
