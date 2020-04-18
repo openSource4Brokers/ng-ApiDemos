@@ -50,10 +50,10 @@ Before building, set resolveJsonModule to 'true' :
     ...
 ```
 ## Good practice 1: use lazy loading modules
-- Ex. a home module in modules folder: `ng generate module modules/sector-catalog --route sector-catalog --module app.module`
-- Ex. unsplash module: `ng generate module modules/unsplash --route unsplash --module app.module`
+- Ex. sector-catalog module in modules folder: `ng generate module modules/sector-catalog --route sector-catalog --module app.module`
+- Ex. corona module: `ng generate module modules/corona --route corona --module app.module`
 
-## Good practice 2: Update Angular when needed
+## Good practice 2: Update and check Angular X as needed
 This app is on Angular 9.  Update to latest Angular 9 with:
 `ng update @angular/cli@9 @angular/core@9`
 
