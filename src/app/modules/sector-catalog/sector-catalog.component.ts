@@ -43,7 +43,10 @@ export class SectorCatalogComponent implements OnInit {
     const http$ = createHttpObservable(sectorCatalogUrl);
     // only for checking model selected by broker
     http$.subscribe(
-      (catalogs: ICatalog[]) => console.log(catalogs),
+      (catalogs: ICatalog[]) => {
+        // console.log('ready');
+        // console.log(catalogs);
+      },
       () => {},
       () => {
         // console.log('completed');

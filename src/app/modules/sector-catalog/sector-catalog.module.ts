@@ -1,3 +1,4 @@
+import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,13 +31,15 @@ import { CatalogsCardListComponent } from './catalogs-card-list/catalogs-card-li
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
+    ModalModule.forRoot(),
     FontAwesomeModule,
     SectorCatalogRoutingModule,
     ReactiveFormsModule,
     TabsModule.forRoot(),
   ],
+  providers: [BsModalRef],
 })
 export class SectorCatalogModule {}

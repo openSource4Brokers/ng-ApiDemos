@@ -1,80 +1,74 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs';
+
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { ICatalog } from '../_models/catalog';
 
 @Component({
   selector: 'app-catalog-details',
-  templateUrl: './catalog-details.component.html'
+  templateUrl: './catalog-details.component.html',
 })
 export class CatalogDetailsComponent implements OnInit {
-  catalogForm: FormGroup;
-  catalog: ICatalog;
+  title: string;
+  cat: ICatalog;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {
-    const myJSON = localStorage.getItem('catalog');
-    this.catalog = JSON.parse(myJSON);
-    console.log(this.catalog);
+  public onSelected: Subject<boolean>;
 
-    this.catalogForm = fb.group({
-      brokerComments: [this.catalog.BrokerComments],
-      brokerCompanyId: [this.catalog.BrokerCompanyId],
-      calculatedUrl: [this.catalog.CalculatedUrl],
-      catalogItemGuid: [this.catalog.CatalogItemGuid, Validators.required],
-      categoryDescription: [this.catalog.CategoryDescription],
-      categoryFR: [this.catalog.CategoryFR],
-      categoryKey: [this.catalog.CategoryKey],
-      companyCode: [this.catalog.CompanyCode],
-      companyName: [this.catalog.CompanyName],
-      companyNameFR: [this.catalog.CompanyNameFR],
-      deleted: [this.catalog.Deleted],
-      description: [this.catalog.Description],
-      descriptionFR: [this.catalog.DescriptionFR],
-      descriptionLongFR: [this.catalog.DescriptionLongFR],
-      descriptionLongNL: [this.catalog.DescriptionLongNL],
-      descriptionNL: [this.catalog.DescriptionNL, Validators.required],
-      displayModeDescription: [this.catalog.DisplayModeDescription],
-      displayModeKey: [this.catalog.DisplayModeKey],
-      friendlySizeKey: [this.catalog.FriendlySizeKey],
-      guarenteeKey: [this.catalog.GuarenteeKey],
-      height: [this.catalog.Height],
-      itemValidity: [this.catalog.ItemValidity],
-      itemVisibleFrom: [this.catalog.ItemVisibleFrom],
-      itemVisibleUntil: [this.catalog.ItemVisibleUntil],
-      language: [this.catalog.Language],
-      productDomainCodeDescriptionFR: [
-        this.catalog.ProductDomainCodeDescriptionFR
-      ],
-      productDomainCodeDescriptionNL: [
-        this.catalog.ProductDomainCodeDescriptionNL
-      ],
-      productDomainCodeKey: [this.catalog.ProductDomainCodeKey],
-      productGuid: [this.catalog.ProductGuid],
-      productName: [this.catalog.ProductName],
-      productValidity: [this.catalog.ProductValidity],
-      productVisibleFrom: [this.catalog.ProductVisibleFrom],
-      productVisibleUntil: [this.catalog.ProductVisibleUntil],
-      reference: [this.catalog.Reference],
-      secureGUID: [this.catalog.SecureGUID],
-      subCategoryDescription: [this.catalog.SubCategoryDescription],
-      subCategoryFR: [this.catalog.SubCategoryFR],
-      subCategoryKey: [this.catalog.SubCategoryKey],
-      systemIdentifier: [this.catalog.SystemIdentifier],
-      targetKey: [this.catalog.TargetKey],
-      title: [this.catalog.Title],
-      url: [this.catalog.Url, Validators.required],
-      version: [this.catalog.Version],
-      width: [this.catalog.Width],
-      origin: [this.catalog.origin]
-    });
-  }
+  catForm: FormGroup;
+
+  constructor(public bsModalRef: BsModalRef, private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.catalogForm.valueChanges.subscribe(console.log);
+    this.catForm = this.fb.group({
+      brokerComments: [this.cat.BrokerComments],
+      brokerCompanyId: [this.cat.BrokerCompanyId],
+      calculatedUrl: [this.cat.CalculatedUrl],
+      catalogItemGuid: [this.cat.CatalogItemGuid, Validators.required],
+      categoryDescription: [this.cat.CategoryDescription],
+      categoryFR: [this.cat.CategoryFR],
+      categoryKey: [this.cat.CategoryKey],
+      companyCode: [this.cat.CompanyCode],
+      companyName: [this.cat.CompanyName],
+      companyNameFR: [this.cat.CompanyNameFR],
+      deleted: [this.cat.Deleted],
+      description: [this.cat.Description],
+      descriptionFR: [this.cat.DescriptionFR],
+      descriptionLongFR: [this.cat.DescriptionLongFR],
+      descriptionLongNL: [this.cat.DescriptionLongNL],
+      descriptionNL: [this.cat.DescriptionNL, Validators.required],
+      displayModeDescription: [this.cat.DisplayModeDescription],
+      displayModeKey: [this.cat.DisplayModeKey],
+      friendlySizeKey: [this.cat.FriendlySizeKey],
+      guarenteeKey: [this.cat.GuarenteeKey],
+      height: [this.cat.Height],
+      itemValidity: [this.cat.ItemValidity],
+      itemVisibleFrom: [this.cat.ItemVisibleFrom],
+      itemVisibleUntil: [this.cat.ItemVisibleUntil],
+      language: [this.cat.Language],
+      productDomainCodeDescriptionFR: [this.cat.ProductDomainCodeDescriptionFR],
+      productDomainCodeDescriptionNL: [this.cat.ProductDomainCodeDescriptionNL],
+      productDomainCodeKey: [this.cat.ProductDomainCodeKey],
+      productGuid: [this.cat.ProductGuid],
+      productName: [this.cat.ProductName],
+      productValidity: [this.cat.ProductValidity],
+      productVisibleFrom: [this.cat.ProductVisibleFrom],
+      productVisibleUntil: [this.cat.ProductVisibleUntil],
+      reference: [this.cat.Reference],
+      secureGUID: [this.cat.SecureGUID],
+      subCategoryDescription: [this.cat.SubCategoryDescription],
+      subCategoryFR: [this.cat.SubCategoryFR],
+      subCategoryKey: [this.cat.SubCategoryKey],
+      systemIdentifier: [this.cat.SystemIdentifier],
+      targetKey: [this.cat.TargetKey],
+      title: [this.cat.Title],
+      url: [this.cat.Url, Validators.required],
+      version: [this.cat.Version],
+      width: [this.cat.Width],
+      origin: [this.cat.origin],
+    });
+
+    // this.catForm.valueChanges.subscribe(console.log);
   }
 }
