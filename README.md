@@ -1,4 +1,4 @@
-# ng-ApiDemos - API demos using Angular 9
+# ng-ApiDemos - API demos using Angular
 ## Getting started for users
 Live version here: [site](https://apidemos.vsoft.be)
 ## API Sources used for this app
@@ -16,6 +16,7 @@ Live version here: [site](https://apidemos.vsoft.be)
 - [Angular CLI](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli`
 ## NPM packages used for this app
 - [bootstrap](https://www.npmjs.com/package/bootstrap): `npm i bootstrap`
+- [bootswatch](https://www.npmjs.com/package/bootswatch): `npm i bootswatch`
 - [jquery](https://www.npmjs.com/package/jquery): `npm i jquery`
 - [fontawesome angular](https://www.npmjs.com/package/@fortawesome/angular-fontawesome): `npm i @fortawesome/angular-fontawesome`
 - [fontawesome svg core](https://www.npmjs.com/package/@fortawesome/fontawesome-svg-core): `npm i @fortawesome/fontawesome-svg-core`
@@ -25,7 +26,7 @@ Live version here: [site](https://apidemos.vsoft.be)
 - [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): `npm i @ngx-translate/core`
 - [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader`
 
-- install all packages in one commandline: `npm i bootstrap jquery @fortawesome/angular-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons bootstrap-icons ngx-bootstrap @ngx-translate/core @ngx-translate/http-loader`
+- install all packages in one commandline: `npm i bootstrap bootswatch jquery @fortawesome/angular-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons bootstrap-icons ngx-bootstrap @ngx-translate/core @ngx-translate/http-loader`
 ## file styles.css
 For use of bootstrap, add into file styles.css:
 
