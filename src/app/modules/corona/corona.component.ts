@@ -66,7 +66,7 @@ export class CoronaComponent implements OnInit {
   graphLabel2: string;
   graphLabel3: string;
 
-  constructor(private cs: CoronaService, private ts: TranslateService) {}
+  constructor(private cs: CoronaService, private ts: TranslateService) { }
 
   ngOnInit(): void {
     this.getGlobalNumbers();
@@ -181,6 +181,8 @@ export class CoronaComponent implements OnInit {
     this.countryRecovered = Object.values(
       this.countryHistorical.timeline.recovered
     );
+
+    console.log(this.countryDeaths[this.countryDeaths.length - 1]);
 
     this.ts.get('CORONA.GraphLabel1').subscribe((res: string) => {
       this.graphLabel1 = res;

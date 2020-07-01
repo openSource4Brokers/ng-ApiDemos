@@ -1,5 +1,3 @@
-import { LanguageService } from './_startup/language.service';
-import { LanguageComponent } from './_startup/navbar/language/language.component';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -19,6 +17,8 @@ import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { LanguageService } from './_startup/language.service';
+import { LanguageComponent } from './_startup/navbar/language/language.component';
 import { FooterComponent } from './_startup/footer/footer.component';
 import { NavbarComponent } from './_startup/navbar/navbar.component';
 
@@ -53,4 +53,4 @@ import { NavbarComponent } from './_startup/navbar/navbar.component';
   entryComponents: [LanguageComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
