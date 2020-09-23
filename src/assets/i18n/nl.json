@@ -74,7 +74,7 @@
     "WorldLabelTestsPerOneMillion": "Tests per miljoen",
     "WorldLabelAffectedCountries": "Getroffen landen",
 
-    "TabCountryStatus": "Status",
+    "TabCountryStatus": "Vandaag",
     "ButtonGetHistoryData": "Grafiekdata ophalen",
     "LabelCountryLatestUpdate": "Bijgewerkt op",
     "LabelCountryTodayCases": "Vaststellingen vandaag",
@@ -89,7 +89,8 @@
     "LabelCountryTests": "Totaal tests",
     "LabelCountryPerMillionTests": "Tests per miljoen inwoners",
 
-    "TabGraphData": "Grafiek",
+    "TabGraphData": "Historische som",
+    "TabGraphEvalData": "Per dag",
     "GraphLabel1": "Zieken",
     "GraphLabel2": "Sterfgevallen",
     "GraphLabel3": "Hersteld"

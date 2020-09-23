@@ -78,7 +78,7 @@
                         </div>
                     </tab>
 
-                    <tab id="status" heading="{{ 'CORONA.TabCountryStatus' | translate }} {{ selectedCountryName }} "
+                    <tab id="status" heading="{{ selectedCountryName }} {{ 'CORONA.TabCountryStatus' | translate }} "
                         (selectTab)="onSelect($event)">
                         <div class="col-md-6">
                             <div class="card p-6">
@@ -165,6 +165,18 @@
                         <div>
                             <div style="display: block">
                                 <canvas baseChart [datasets]="coronaChartData" [labels]="coronaChartLabels"
+                                    [options]="coronaChartOptions" [legend]="coronaChartLegend"
+                                    [chartType]="coronaChartType">
+                                </canvas>
+                            </div>
+                        </div>
+                    </tab>
+
+                    <tab *ngIf="evalAvailable"
+                        heading="{{ 'CORONA.TabGraphEvalData' | translate }} {{ selectedCountryName }}">
+                        <div>
+                            <div style="display: block">
+                                <canvas baseChart [datasets]="coronaEvalChartData" [labels]="coronaChartLabels"
                                     [options]="coronaChartOptions" [legend]="coronaChartLegend"
                                     [chartType]="coronaChartType">
                                 </canvas>

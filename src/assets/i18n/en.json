@@ -13,7 +13,7 @@
 
   "COMMON": {
     "MessageWaiting": "Moment...",
-    "MessageApiError": "API is not available now. Try again later!",
+    "MessageApiError": "API is not available now. Try again later!"
   },
 
   "HOME": {
@@ -56,7 +56,7 @@
     "Image": "assets/images/about/about2.jfif"
   },
 
-  "CORONA": {    
+  "CORONA": {
     "TabGlobal": "Worldwide",
 
     "WorldLabelLatestUpdate": "Updated on",
@@ -73,7 +73,7 @@
     "WorldLabelTestsPerOneMillion": "Tests per million",
     "WorldLabelAffectedCountries": "Countries affected",
 
-    "TabCountryStatus": "Status",
+    "TabCountryStatus": "Today",
     "ButtonGetHistoryData": "Load Graph data",
     "LabelCountryLatestUpdate": "Updated on",
     "LabelCountryTodayCases": "Cases today",
