@@ -8,6 +8,7 @@ Live version here: [site](https://apidemos.vsoft.be)
 
 - [NovelCOVID/API](https://github.com/novelcovid/api) - [API Reference](https://corona.lmao.ninja/docs/)
 - [Sector Catalog](http://app.sectorcatalog.be/SectorCatalog/)
+Sector Catalog API werd jammer genoeg verwijderd zonder versiebeheer en werkt dus niet meer.
 
 ## Getting started for developers
 
