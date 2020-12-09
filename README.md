@@ -1,14 +1,23 @@
 # ng-ApiDemos - API demos using Angular
 
-## Getting started for users
+## Last Version
 
 Live version here: [site](https://apidemos.vsoft.be)
+
+This is the last combined version as both corona API and sectorcatalog API evolve in different versions. This code will not be serviced further on.
+
+### Sector Catalog (BE insurance companies)
+Visit [ngb-sectorcatalog](https://github.com/openSource4Brokers/ngb-sectorcatalog) for the lasted developments
+
+### Corona Statistics
+Visit [ngb-coronastats](https://github.com/JosVermoesen/ngb-coronastats) for the lasted developments
+
 
 ## API Sources used for this app
 
 - [NovelCOVID/API](https://github.com/novelcovid/api) - [API Reference](https://corona.lmao.ninja/docs/)
 - [Sector Catalog](http://app.sectorcatalog.be/SectorCatalog/)
-Sector Catalog API werd jammer genoeg verwijderd zonder versiebeheer en werkt dus niet meer.
+Sector Catalog API version 1 was removed unfortunatly begin october 2020 but is now again available since begin december 2020. Please use version 2
 
 ## Getting started for developers
 
@@ -38,6 +47,20 @@ Sector Catalog API werd jammer genoeg verwijderd zonder versiebeheer en werkt du
 - [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader`
 
 - install all packages in one commandline: `npm i bootstrap bootswatch jquery @fortawesome/angular-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons bootstrap-icons ngx-bootstrap @ngx-translate/core @ngx-translate/http-loader`
+
+## warnings for chart.js
+
+In angular.json, to avoid CommonJs warnings in development mode, add **allowedCommonJsDependencies** in the options section for **chart.js**:
+
+```bash
+"builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            // other
+            "allowedCommonJsDependencies": [
+              "chart.js"
+            ],
+            // other
+```
 
 ## file styles.css
 
