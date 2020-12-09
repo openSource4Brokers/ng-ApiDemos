@@ -98,7 +98,7 @@ Before building, set resolveJsonModule to 'true' :
 
 ## Good practice 2: Update and check Angular X as needed
 
-This app is on Angular 9.  Update to latest Angular 9 with:
-`ng update @angular/cli@9 @angular/core@9`
+This app is on Angular 10.  Update to latest Angular 10 with:
+`ng update @angular/cli@10 @angular/core@10`
 
 Follow the instructions eventualy for fixes
